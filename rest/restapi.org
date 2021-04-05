@@ -1,0 +1,1007 @@
+
+* Persons
+** GET:
+*** GET: all
+#+BEGIN_SRC restclient
+GET http://localhost:8000/person
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiYWNjZXNzIjoiMyIsImlhdCI6MTYxNzUyMzAxNywiZXhwIjoxNjE3NTI2NjE3fQ.m4HZvM1oDg_0hLdwUIsIIn7ormfZkZHoINUU2omhANU
+#+END_SRC
+
+#+RESULTS:
+#+BEGIN_SRC js
+[
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:24:53.919Z",
+    "_id": "606818456f21c22638f20c36",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:33:24.914Z",
+    "_id": "60681a44bd219f3b68be6876",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:34:39.417Z",
+    "_id": "60681a8fcc4f9e3a24ff496b",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:35:04.712Z",
+    "_id": "60681aa84a450727bcb23df5",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:35:19.729Z",
+    "_id": "60681ab73b553e379423dfcd",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:35:43.648Z",
+    "_id": "60681acfe7bcf74518843f39",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:35:58.074Z",
+    "_id": "60681ade87ae634590c74f57",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:41:55.091Z",
+    "_id": "60681c431a9fc047348e5652",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:42:12.549Z",
+    "_id": "60681c547a24e8079cfdbefa",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:42:33.467Z",
+    "_id": "60681c694ea6642254899378",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:43:22.987Z",
+    "_id": "60681c9b4da4e647fc8cc933",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:44:13.475Z",
+    "_id": "60681ccda579b34928804505",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:44:24.480Z",
+    "_id": "60681cd821b5574b1477cab9",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:44:48.628Z",
+    "_id": "60681cf0fc2bff1a8884faf4",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:46:22.611Z",
+    "_id": "60681d4ed1f5434f90b856eb",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:46:35.366Z",
+    "_id": "60681d5b05c133529cf12270",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:47:27.264Z",
+    "_id": "60681d8f1945f25160c07adb",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:48:37.942Z",
+    "_id": "60681dd5cc48a437e80263dc",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:49:27.661Z",
+    "_id": "60681e0719bf830b84a6edd1",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:50:44.904Z",
+    "_id": "60681e540804de19d474e22b",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:52:32.282Z",
+    "_id": "60681ec0811138480caea111",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:52:40.054Z",
+    "_id": "60681ec8e8778d446863f42d",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:53:23.884Z",
+    "_id": "60681ef3b2d5034394d1a959",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:53:54.646Z",
+    "_id": "60681f12d84f273cc412c9b8",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:56:35.535Z",
+    "_id": "60681fb3e534a72ed4fcd109",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:57:19.929Z",
+    "_id": "60681fdf63dda84b0065c29e",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T07:57:43.231Z",
+    "_id": "60681ff7196f2b3440f39340",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:03:04.231Z",
+    "_id": "60682138f8889a5158340559",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:03:47.119Z",
+    "_id": "6068216306374452d07b19f2",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:06:38.402Z",
+    "_id": "6068220e7ed84f0880638105",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:08:04.988Z",
+    "_id": "606822655fa030386c478f38",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:08:44.768Z",
+    "_id": "6068228c63896d53acf374be",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:09:03.820Z",
+    "_id": "6068229f4668e93de0eb8c81",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:10:45.414Z",
+    "_id": "606823052b624646f0d55e47",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:11:40.215Z",
+    "_id": "6068233ce8357e51fc23fe4c",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:11:56.000Z",
+    "_id": "6068234c3e5b3f515452fc70",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:12:55.804Z",
+    "_id": "606823874d11744808f49eab",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:15:24.725Z",
+    "_id": "6068241c32d9304960445e7a",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:15:58.076Z",
+    "_id": "6068243e8823a748c8ba9782",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:19:09.757Z",
+    "_id": "606824fd3df6f02dd443a07b",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:19:36.547Z",
+    "_id": "606825187403ba39b41b6210",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:19:44.993Z",
+    "_id": "606825219fb9e005b4a71e6a",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:20:14.532Z",
+    "_id": "6068253e7b72b352b469e36c",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:20:32.232Z",
+    "_id": "60682550149fcf4a1053e479",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:27:08.610Z",
+    "_id": "606826dc1b5d5624946ded0e",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:27:34.556Z",
+    "_id": "606826f6a14c4034d41e2331",
+    "lastname": "Lastname",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:29:04.042Z",
+    "_id": "60682750835c994b1c11d13e",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:30:38.418Z",
+    "_id": "606827ae5e4ce44ec8701dc0",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:31:22.128Z",
+    "_id": "606827da9ae8ef2104373d1f",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:31:40.575Z",
+    "_id": "606827ec9ec03436746248dd",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:31:50.327Z",
+    "_id": "606827f6ab55a35274e957a0",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:32:09.486Z",
+    "_id": "60682809d5414750cc70deb7",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:33:02.606Z",
+    "_id": "6068283e9625b33c68d0cb14",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  },
+  {
+    "address": {
+      "street": "Street",
+      "barangay": "3",
+      "city": "City",
+      "province": "Province"
+    },
+    "createdAt": "2021-04-03T08:34:14.317Z",
+    "_id": "606828868295e92afc37a519",
+    "lastname": "Hello",
+    "firstname": "Firstname",
+    "birthdate": "1999-04-17T00:00:00.000Z",
+    "gender": "Male",
+    "__v": 0
+  }
+]
+// GET http://localhost:8000/person
+// HTTP/1.1 200 OK
+// X-Powered-By: Express
+// Content-Type: application/json; charset=utf-8
+// Content-Length: 14185
+// ETag: W/"3769-0wEAzBqapnTfjyCO3y4DIeD0huc"
+// Date: Sun, 04 Apr 2021 07:57:21 GMT
+// Connection: keep-alive
+// Keep-Alive: timeout=5
+// Request duration: 0.036689s
+#+END_SRC
+
+*** GET: one id
+#+begin_src restclient
+GET http://localhost:8000/person/60681c547a24e8079cfdbefa
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjE3NTIxNzI2LCJleHAiOjE2MTc1MjUzMjZ9.vnGu_AZZ6Z-ndDELwhzMXyYRxeJnCIhh1t4wBwTLwSg
+
+:auth = 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiaWF0IjoxNjE3NTE5ODc0LCJleHAiOjE2MTc1MjM0NzR9.M5k4j-mIX4XPRJHBljcEcEfc_O5-z2B81WRKopFj8n8
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+[
+{
+"address": {
+"street": "Street",
+"barangay": "3",
+"city": "City",
+"province": "Province"
+},
+"createdAt": "2021-04-03T07:42:12.549Z",
+"_id": "60681c547a24e8079cfdbefa",
+"lastname": "Lastname",
+"firstname": "Firstname",
+"birthdate": "1999-04-17T00:00:00.000Z",
+"gender": "Male",
+"__v": 0
+}
+]
+// GET http://localhost:8000/person/60681c547a24e8079cfdbefa
+// HTTP/1.1 200 OK
+// X-Powered-By: Express
+// Content-Type: application/json; charset=utf-8
+// Content-Length: 265
+// ETag: W/"109-kk23Woe6z+AJ5mTFjPc5a6NLNBo"
+// Date: Sun, 04 Apr 2021 07:37:46 GMT
+// Connection: keep-alive
+// Keep-Alive: timeout=5
+// Request duration: 0.006012s
+#+END_SRC
+
+#+RESULTS:
+
+*** GET: search
+
+** POST:
+*** POST: person
+
+#+begin_src restclient
+POST http://localhost:8000/person/
+content-type: application/json
+{
+"lastname": "Emacs",
+"firstname": "DOOM"
+}
+#+end_src
+
+** PUT:
+*** PUT: update firstname
+#+begin_src restclient
+PUT http://localhost:8000/person/60692568beb9fa17d42366b7
+content-type: application/json
+{
+"firstname": "DOOM Emacs"
+}
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC js
+{
+"createdAt": "2021-04-04T02:27:29.162Z",
+"_id": "60692568beb9fa17d42366b7",
+"lastname": "Emacs",
+"firstname": "DOOM Emacs",
+"__v": 0
+}
+// PUT http://localhost:8000/person/60692568beb9fa17d42366b7
+// HTTP/1.1 200 OK
+// X-Powered-By: Express
+// Content-Type: application/json; charset=utf-8
+// Content-Length: 125
+// ETag: W/"7d-v2qx81nGu3m3AtRluUeL3haFHWg"
+// Date: Sun, 04 Apr 2021 02:54:36 GMT
+// Connection: keep-alive
+// Keep-Alive: timeout=5
+// Request duration: 0.033485s
+#+END_SRC
+
+** DELETE:
+*** DELETE: Delete a person
+#+begin_src restclient
+DELETE http://localhost:8000/person/60692568beb9fa17d42366b7
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC text
+OK
+DELETE http://localhost:8000/person/60692568beb9fa17d42366b7
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: text/plain; charset=utf-8
+Content-Length: 2
+ETag: W/"2-nOO9QiTIwXgNtWtBJezz8kv3SLc"
+Date: Sun, 04 Apr 2021 03:27:08 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Request duration: 0.031662s
+#+END_SRC
+
+
+* Accounts
+*** Login
+#+begin_src restclient
+POST http://localhost:8000/auth/login
+content-type: application/json
+{
+"username": "admin",
+"password": "admin"
+}
+#+end_src
+
+#+RESULTS:
+#+BEGIN_SRC html
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiYWNjZXNzIjoiMyIsImlhdCI6MTYxNzUyNDAzOSwiZXhwIjoxNjE3NTI3NjM5fQ.JdUW1sm9m9a2GCbv3mAUeZ3Pim3K6ttUTJiEsJcAz58
+<!-- POST http://localhost:8000/auth/login -->
+<!-- HTTP/1.1 200 OK -->
+<!-- X-Powered-By: Express -->
+<!-- Content-Type: text/html; charset=utf-8 -->
+<!-- Content-Length: 171 -->
+<!-- ETag: W/"ab-6PpDyfIQg/ffilpNLutQtarPPms" -->
+<!-- Date: Sun, 04 Apr 2021 08:13:59 GMT -->
+<!-- Connection: keep-alive -->
+<!-- Keep-Alive: timeout=5 -->
+<!-- Request duration: 0.020557s -->
+#+END_SRC
+
+*** Login: student
+#+begin_src restclient
+POST http://localhost:8000/auth/login
+content-type: application/json
+{
+"username": "student",
+"password": "student"
+}
+
+#+end_src
+
+#+RESULTS:
+#+begin_example
+#+BEGIN_SRC html
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InN0dWRlbnQiLCJhY2Nlc3MiOiIxIiwiaWF0IjoxNjE3NTIzOTY3LCJleHAiOjE2MTc1Mjc1Njd9.052W0VtICK9esZm7xSOk8NsLvwUqOgJUoQHdr9PhaEc
+<!-- POST http://localhost:8000/auth/login -->
+<!-- HTTP/1.1 200 OK -->
+<!-- X-Powered-By: Express -->
+<!-- Content-Type: text/html; charset=utf-8 -->
+<!-- Content-Length: 173 -->
+<!-- ETag: W/"ad-zLmgCi8mcL9YaCBS4CYEt3cRllQ" -->
+<!-- Date: Sun, 04 Apr 2021 08:12:47 GMT -->
+<!-- Connection: keep-alive -->
+<!-- Keep-Alive: timeout=5 -->
+<!-- Request duration: 0.101009s -->
+,#+END_SRC
+#+end_example
+*** Testing
+#+begin_src restclient
+POST http://localhost:8000/person
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiYWNjZXNzIjoiMyIsImlhdCI6MTYxNzUyNDAzOSwiZXhwIjoxNjE3NTI3NjM5fQ.JdUW1sm9m9a2GCbv3mAUeZ3Pim3K6ttUTJiEsJcAz58
+{
+"firstname": "DOOM Emacs"
+}
+#+end_src

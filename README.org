@@ -1,0 +1,8 @@
+# ict-server
+
+## Required
+.env file
+PORT=8000
+CONNECTION_STRING="mongodb://localhost:27017/school"
+
+SECRET_LEVEL1

@@ -18,7 +18,6 @@ router.get('/', jwt, async (req, res) => {
 })
 
 router.get('/:id', jwt, async (req, res) => {
-
     const params = req.params
     const data = await person.select({ _id: params.id })
     res.send(data)
@@ -32,14 +31,20 @@ router.get('/search', jwt, async (req, res) => {
 
 
 router.post('/', jwt, async (req, res) => {
-    if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
+    if (req.user.access <= 2) { res.send(401).send('Unauthorized Access') }
     const data = req.body
-    const ins = await person.insert(data)
-    res.send(ins)
+    try {
+        const ins = await person.insert(data)
+        res.send(ins)
+    } catch{
+        res.statusCode(400)
+
+    }
+
 })
 
 router.put('/:id', jwt, async (req, res) => {
-    if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
+    if (req.user.access <= 2) { res.sendStatus(401).send('Unauthorized Access') }
     const id = req.params.id
     const data = req.body
     console.log(req.body)
@@ -47,7 +52,7 @@ router.put('/:id', jwt, async (req, res) => {
         const persons = await person.update({ _id: id }, data)
         res.send(persons)
     } catch{
-        res.send(404).send('Not Found')
+        res.sendStatus(404).send('Not Found')
     }
     res.send(persons)
 })

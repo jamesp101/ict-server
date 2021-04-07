@@ -1,6 +1,6 @@
 
 const router = require('express').Router()
-const accountController = require('../controller/class.controller')
+const accountController = require('../controller/account.controller')
 
 const account = new accountController()
 const express_jwt = require('express-jwt')
@@ -32,8 +32,8 @@ router.get('/search', jwt, async (req, res) => {
 })
 
 
-router.post('/', jwt, async (req, res) => {
-    if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
+router.post('/', async (req, res) => {
+    // if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
     const data = req.body
     const ins = await account.insert(data)
     res.send(ins)

@@ -44,14 +44,6 @@ router.get('/', async (req, res) => {
                 select: ['lastname', 'firstname']
             }
         },
-        {
-            path: 'students',
-            populate: {
-                path: 'person',
-                model: 'Persons'
-            }
-
-        }
         ]
     )
     res.json(data)

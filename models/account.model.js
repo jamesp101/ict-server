@@ -8,7 +8,7 @@ const schema = require('mongoose')
 
 
 const accountSchema = new schema.Schema({
-    user: {
+    person: {
         type: schema.Schema.Types.ObjectId,
         ref: 'Person'
     },

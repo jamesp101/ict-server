@@ -20,9 +20,16 @@ const postSchema = new schema.Schema({
             type: schema.Schema.Types.ObjectId,
             ref: 'Account'
         },
-        description: 'String'
+        description: 'String',
+        commentDate: { type: 'Date', default: Date.now }
     }],
-    postedDate: 'Date'
+    postedBy:
+    {
+        type: schema.Schema.Types.ObjectId,
+        ref: 'Account'
+
+    },
+    postedDate: { type: 'Date', default: Date.now }
 })
 
 

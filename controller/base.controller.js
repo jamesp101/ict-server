@@ -32,9 +32,15 @@ module.exports = class Controller {
         return model
     }
 
-    async select(query = {}, field = {}, populate = {}) {
+    async select(query = {}, field = {}, populate = "") {
         const model = this.Model
-        return model.find(query, field)
+        if (populate.length == 0) {
+            return model.find(query, field)
+        }
+        else {
+            return model.find(query, field).populate(populate)
+
+        }
     }
 
 }

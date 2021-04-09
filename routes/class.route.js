@@ -5,14 +5,39 @@ const classController = require('../controller/class.controller')
 const classes = new classController()
 
 router.get('/', async (req, res) => {
+    const params = req.query
+    console.log(params)
+    const data = await classes.select(params, {},
+        [{
+            path: 'teacher',
+            select: 'person',
+            populate: {
+                path: 'person',
+                model: 'Persons',
+                select: ['lastname', 'firstname']
+            }
+        },
+        ]
+    );
 
-    const data = await classes.select()
     res.send(data)
 })
 
 router.get('/:id', async (req, res) => {
     const params = req.params
-    const data = await classes.select({ _id: params.id })
+    const data = await classes.select(
+        { _id: params.id },
+        {},
+        {
+            path: 'students',
+            select: '-password',
+            populate: {
+                path: 'person',
+                model: 'Persons',
+            },
+
+        }
+    )
     res.send(data)
 })
 

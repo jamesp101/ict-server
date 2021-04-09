@@ -12,16 +12,22 @@ require('dotenv').config()
 const jwt = express_jwt({ secret: process.env.SECRET_LEVEL1, algorithms: ['HS256'] })
 
 
-router.get('/', jwt, async (req, res) => {
+router.get('/', async (req, res) => {
 
     const data = await account.select()
     res.send(data)
 })
 
-router.get('/:id', jwt, async (req, res) => {
+router.get('/:id', async (req, res) => {
 
     const params = req.params
-    const data = await account.select({ _id: params.id })
+    const data = await account.select({ _id: params.id },
+        ['-password'],
+        {
+            path: 'person',
+            model: 'Persons'
+        })
+    data['password'] = undefined
     res.send(data)
 })
 
@@ -39,8 +45,8 @@ router.post('/', async (req, res) => {
     res.send(ins)
 })
 
-router.put('/:id', jwt, async (req, res) => {
-    if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
+router.put('/:id', async (req, res) => {
+    // if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
     const id = req.params.id
     const data = req.body
     console.log(req.body)
@@ -48,7 +54,7 @@ router.put('/:id', jwt, async (req, res) => {
         const persons = await account.update({ _id: id }, data)
         res.send(persons)
     } catch{
-        res.send(404).send('Not Found')
+        res.status(404).send('Not Found')
     }
     res.send(persons)
 })

@@ -30,9 +30,10 @@ router.get('/search', jwt, async (req, res) => {
 })
 
 
-router.post('/', jwt, async (req, res) => {
-    if (req.user.access <= 2) { res.send(401).send('Unauthorized Access') }
+router.post('/', async (req, res) => {
+    // if (req.user.access <= 2) { res.send(401).send('Unauthorized Access') }
     const data = req.body
+    console.log(data)
     try {
         const ins = await person.insert(data)
         res.send(ins)

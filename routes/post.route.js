@@ -5,6 +5,7 @@ const postController = require('../controller/post.controller')
 const post = new postController()
 const express_jwt = require('express-jwt')
 
+const ObjectId = require('mongoose').Types.ObjectId
 
 require('dotenv').config()
 
@@ -12,16 +13,61 @@ require('dotenv').config()
 const jwt = express_jwt({ secret: process.env.SECRET_LEVEL1, algorithms: ['HS256'] })
 
 
-router.get('/', jwt, async (req, res) => {
+router.get('/', async (req, res) => {
+    const params = req.query
+    if ('class' in params) {
+        params['class'] = ObjectId(params['class'])
+    }
+    if ('postedBy' in params) {
+        params['postedBy'] = ObjectId(params['postedBy'])
+    }
+    console.log(params)
+    const data = await post.select(
+        params,
+        {},
+        [{
+            path: 'comments.user',
+            model: 'Account',
+            select: ['person'],
+            populate: {
+                path: 'person',
+                model: 'Persons',
+                select: ['lastname', 'firstname']
+            }
+        },
+        {
+            path: 'postedBy',
+            select: ['person'],
+            populate: {
+                path: 'person',
+                model: 'Persons',
+                select: ['lastname', 'firstname']
+            }
+        },
+        {
+            path: 'students',
+            populate: {
+                path: 'person',
+                model: 'Persons'
+            }
 
-    const data = await post.select()
-    res.send(data)
+        }
+        ]
+    )
+    res.json(data)
 })
 
 router.get('/:id', jwt, async (req, res) => {
 
     const params = req.params
-    const data = await post.select({ _id: params.id })
+    const data = await post.select({ _id: params.id },
+        {},
+        {
+            path: 'comments.user',
+            select: [
+                'firstname',
+                'lastname']
+        })
     res.send(data)
 })
 
@@ -32,9 +78,10 @@ router.get('/search', jwt, async (req, res) => {
 })
 
 
-router.post('/', jwt, async (req, res) => {
-    if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
+router.post('/', async (req, res) => {
+    // if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
     const data = req.body
+    console.log(data)
     const ins = await post.insert(data)
     res.send(ins)
 })

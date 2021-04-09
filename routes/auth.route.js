@@ -4,20 +4,23 @@ const accountsController = require('../controller/account.controller')
 
 const accounts = new accountsController()
 const jwt = require('jsonwebtoken')
+const express_jwt = require('express-jwt')
 
 require('dotenv').config()
 
 
 
+const e_jwt = express_jwt({ secret: process.env.SECRET_LEVEL1, algorithms: ['HS256'] })
 const router = express.Router()
 
-router.post('/login', async (req, res) => {
+router.post('/', async (req, res) => {
     const data = req.body
 
     console.log(req.body)
     //search account from db
     const results = await accounts.select(
-        { username: data.username, password: data.password }
+        { username: data.username, password: data.password },
+        {},
     )
 
     console.log(results.length)
@@ -38,6 +41,11 @@ router.post('/login', async (req, res) => {
         token: token
     })
 })
+router.get('/', e_jwt, async (req, res) => {
+    const user = req.user
+    console.log(user)
+    res.json({ message: user })
+})
 
 router.post('/logout', async (req, res) => {
     res.send()
@@ -48,12 +56,13 @@ router.post('/logout', async (req, res) => {
 function generateAccessToken(data) {
     return jwt.sign(
         {
+            id: data._id,
             username: data.username,
             access: data.access
         },
         process.env.SECRET_LEVEL1,
         {
-            expiresIn: 60 * 60 * 60,
+            expiresIn: 60 * 60,
             algorithm: 'HS256'
         })
 }

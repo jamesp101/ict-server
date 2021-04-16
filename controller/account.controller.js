@@ -10,4 +10,6 @@ module.exports = class AccountController extends controller {
         super(accountModel.model)
     }
 
+
+
 }

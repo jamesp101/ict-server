@@ -13,8 +13,11 @@ const jwt = express_jwt({ secret: process.env.SECRET_LEVEL1, algorithms: ['HS256
 
 
 router.get('/', async (req, res) => {
-
-    const data = await account.select()
+    const params = req.query
+    const data = await account.select(params, {}, {
+        path: 'person',
+        model: 'Persons'
+    })
     res.send(data)
 })
 
@@ -31,8 +34,27 @@ router.get('/:id', async (req, res) => {
     res.send(data)
 })
 
-router.get('/search', jwt, async (req, res) => {
-    const params = req.query
+router.get('/search/:search', async (req, res) => {
+    const params = req.params
+    const query = req.query
+    const search = `${params.search}`
+    console.log(search)
+    const data = await account.select(
+        query
+        ,
+
+        ['-password'],
+        {
+            path: 'person',
+            model: 'Persons',
+            match: {
+                lastname: { $regex: search, $options: 'i' }
+            }
+        },
+    )
+    data['password'] = undefined
+    console.log(data)
+    res.send(data)
 
     // TODO: add a search functionality
 })

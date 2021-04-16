@@ -1,12 +1,16 @@
-FROM node:alpine
+FROM mhart/alpine-node:14.16
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY ./ ./
+COPY package*.json ./
+
+
 
 RUN npm install
 
-EXPOSE 8080
 
+COPY . .
 
-CMD ["npm", "run" , "dev"]
+EXPOSE 8000
+
+CMD [ "node" , "." ]

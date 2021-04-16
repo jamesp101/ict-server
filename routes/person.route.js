@@ -11,19 +11,19 @@ require('dotenv').config()
 const jwt = express_jwt({ secret: process.env.SECRET_LEVEL1, algorithms: ['HS256'] })
 
 
-router.get('/', jwt, async (req, res) => {
+router.get('/', async (req, res) => {
 
     const data = await person.select()
     res.send(data)
 })
 
-router.get('/:id', jwt, async (req, res) => {
+router.get('/:id', async (req, res) => {
     const params = req.params
     const data = await person.select({ _id: params.id })
     res.send(data)
 })
 
-router.get('/search', jwt, async (req, res) => {
+router.get('/search', async (req, res) => {
     const params = req.query
 
     // TODO: add a search functionality

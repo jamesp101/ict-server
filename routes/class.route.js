@@ -6,7 +6,7 @@ const classes = new classController()
 
 router.get('/', async (req, res) => {
     const params = req.query
-    console.log(params)
+    console.log("search params", params)
     const data = await classes.select(params, {},
         [{
             path: 'teacher',

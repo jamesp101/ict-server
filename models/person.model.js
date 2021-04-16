@@ -10,10 +10,26 @@ const userSchema = new schema.Schema({
     birthdate: 'Date',
     gender: 'String',
     address: {
-        street: 'String',
-        barangay: 'String',
-        city: 'String',
-        province: 'String'
+        street:
+        {
+            type: 'String',
+            default: ""
+        },
+        barangay:
+        {
+            type: 'String',
+            default: ""
+        },
+        city:
+        {
+            type: 'String',
+            default: ""
+        },
+        province:
+        {
+            type: 'String',
+            default: ""
+        },
     },
     createdAt: {
         type: 'Date',

@@ -10,6 +10,27 @@ module.exports = class AccountController extends controller {
         super(accountModel.model)
     }
 
+    async search(lastname) {
+        return await this.Model.aggregate(
+            [{
+                $lookup: {
+                    from: 'persons',
+                    localField: 'person',
+                    foreignField: '_id',
+                    as: 'person'
+                }
+            }, {
+                $unwind: {
+                    path: "$person",
+
+                }
+            }, {
+                $match: {
+                    "person.lastname": { $regex: lastname, $options: 'i' }
+                }
+            }]
+        )
+    }
 
 
 }

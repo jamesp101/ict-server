@@ -17,16 +17,25 @@ router.get('/', async (req, res) => {
     res.send(data)
 })
 
+router.get('/not_activated/', async (req, res) => {
+    console.log('i')
+    const data = await person.not_activated()
+    console.log(data)
+    res.send(data)
+
+    // TODO: add a search functionality
+})
 router.get('/:id', async (req, res) => {
     const params = req.params
     const data = await person.select({ _id: params.id })
     res.send(data)
 })
 
-router.get('/search', async (req, res) => {
-    const params = req.query
+router.get('/search/:search', async (req, res) => {
+    const search = req.params?.search
+    const data = await person.select({ lastname: { $regex: search, $options: 'i' } })
+    res.send(data)
 
-    // TODO: add a search functionality
 })
 
 

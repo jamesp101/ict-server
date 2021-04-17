@@ -6,6 +6,7 @@ const account = new accountController()
 const express_jwt = require('express-jwt')
 
 
+const mongoose = require('mongoose')
 require('dotenv').config()
 
 
@@ -14,7 +15,8 @@ const jwt = express_jwt({ secret: process.env.SECRET_LEVEL1, algorithms: ['HS256
 
 router.get('/', async (req, res) => {
     const params = req.query
-    const data = await account.select(params, {}, {
+    const data = await account.select(params,
+        ['-password'], {
         path: 'person',
         model: 'Persons'
     })
@@ -39,19 +41,7 @@ router.get('/search/:search', async (req, res) => {
     const query = req.query
     const search = `${params.search}`
     console.log(search)
-    const data = await account.select(
-        query
-        ,
-
-        ['-password'],
-        {
-            path: 'person',
-            model: 'Persons',
-            match: {
-                lastname: { $regex: search, $options: 'i' }
-            }
-        },
-    )
+    const data = await account.search(search)
     data['password'] = undefined
     console.log(data)
     res.send(data)
@@ -63,6 +53,10 @@ router.get('/search/:search', async (req, res) => {
 router.post('/', async (req, res) => {
     // if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
     const data = req.body
+    console.log(data)
+    if (data.person != undefined) {
+        data.person = new mongoose.Types.ObjectId(data.person)
+    }
     const ins = await account.insert(data)
     res.send(ins)
 })

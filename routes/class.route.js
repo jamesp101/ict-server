@@ -17,6 +17,17 @@ router.get('/', async (req, res) => {
                 select: ['lastname', 'firstname']
             }
         },
+        {
+
+            path: 'students',
+            select: 'person',
+            populate: {
+                path: 'person',
+                model: 'Persons',
+                select: ['lastname', 'firstname']
+            }
+        }
+
         ]
     );
 
@@ -28,7 +39,7 @@ router.get('/:id', async (req, res) => {
     const data = await classes.select(
         { _id: params.id },
         {},
-        {
+        [{
             path: 'students',
             select: '-password',
             populate: {
@@ -36,7 +47,15 @@ router.get('/:id', async (req, res) => {
                 model: 'Persons',
             },
 
-        }
+
+        }, {
+            path: 'teacher',
+            populate: {
+                path: 'person',
+                model: 'Persons',
+            },
+
+        }]
     )
     res.send(data)
 })
@@ -55,6 +74,13 @@ router.post('/', async (req, res) => {
     res.send(ins)
 })
 
+router.post('/update_students/:id', async (req, res) => {
+    const data = req.body
+    const id = req.params.id
+    const ins = await classes.insert(data)
+    res.send(ins)
+
+})
 router.put('/:id', async (req, res) => {
     const id = req.params.id
     const data = req.body
@@ -62,10 +88,9 @@ router.put('/:id', async (req, res) => {
     try {
         const persons = await classes.update({ _id: id }, data)
         res.send(persons)
-    } catch{
-        res.send(404).send('Not Found')
+    } catch (e) {
+        res.status(404).send('Not Found')
     }
-    res.send(persons)
 })
 
 router.delete('/:id', async (req, res) => {

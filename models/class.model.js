@@ -8,7 +8,7 @@ const classSchema = new schema.Schema({
         type: schema.Schema.Types.ObjectId,
         ref: 'Account',
     },
-    schedule: [],
+    schedule: "String",
     students: [{
         type: schema.Schema.Types.ObjectId,
         ref: 'Account'

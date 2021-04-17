@@ -78,7 +78,7 @@ router.post('/', async (req, res) => {
     res.send(ins)
 })
 
-router.put('/:id', jwt, async (req, res) => {
+router.put('/:id', async (req, res) => {
     if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
     const id = req.params.id
     const data = req.body
@@ -92,7 +92,7 @@ router.put('/:id', jwt, async (req, res) => {
     res.send(persons)
 })
 
-router.delete('/:id', jwt, async (req, res) => {
+router.delete('/:id', async (req, res) => {
     const id = req.params.id
     console.log(id)
     try {

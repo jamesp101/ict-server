@@ -48,8 +48,66 @@ router.get('/', async (req, res) => {
     )
     res.json(data)
 })
+router.get('/:id/comments', async (req, res) => {
 
-router.get('/:id', jwt, async (req, res) => {
+    const params = req.params
+    const data = await post.getcomment({ _id: params.id },
+        ['comments'],
+        {
+            path: 'comments.user',
+            select: ['person', '_id'],
+            populate: {
+                path: 'person',
+                model: 'Persons',
+                select: ['lastname', 'firstname']
+            }
+        })
+    res.send(data)
+})
+router.post('/:id/comments', async (req, res) => {
+    // if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
+    const params = req.params
+    const body = req.body
+    console.log('Body', body)
+    try {
+        const data = await post.pushComment(params.id, body)
+        console.log(data)
+        res.status(200).send('Comment added')
+    } catch (e) {
+        console.log(e)
+        res.status(404).send('Cannot add comment')
+    }
+
+})
+router.put('/:id/comments', async (req, res) => {
+    // if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
+    const params = req.params
+    const body = req.body
+    console.log('Body', body)
+    try {
+        const data = await post.updateComment(params.id, req.body.commentId, req.body.title)
+        console.log(data)
+        res.status(200).send('Comment added')
+    } catch (e) {
+        console.log(e)
+        res.status(404).send('Cannot add comment')
+    }
+
+})
+
+router.delete('/:id/comments/:commentId', async (req, res) => {
+    // if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
+    const params = req.params
+    try {
+        const data = await post.deleteComment(params.id, params.commentId)
+        console.log(data)
+        res.status(200).send('Comment delete')
+    } catch (e) {
+        console.log(e)
+        res.status(404).send('Cannot delete comment')
+    }
+})
+router.get('/:id', async (req, res) => {
 
     const params = req.params
     const data = await post.select({ _id: params.id },

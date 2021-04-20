@@ -25,11 +25,8 @@ router.post('/', async (req, res) => {
 
     console.log(results.length)
     // send 404 if username not
-    if (results.length < 1) {
-        res.json({
-            status: 404,
-            message: "Username or password not found"
-        })
+    if (results.length == 0) {
+        res.status(401).send("Username or password not found")
         return
     }
     const result = results[0]

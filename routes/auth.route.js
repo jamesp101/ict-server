@@ -62,7 +62,7 @@ function generateAccessToken(data) {
         },
         process.env.SECRET_LEVEL1,
         {
-            expiresIn: 60 * 60,
+            expiresIn: 60 * 60 * 60,
             algorithm: 'HS256'
         })
 }

@@ -79,17 +79,16 @@ router.post('/', async (req, res) => {
 })
 
 router.put('/:id', async (req, res) => {
-    if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
+    // if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
     const id = req.params.id
     const data = req.body
     console.log(req.body)
     try {
         const persons = await post.update({ _id: id }, data)
-        res.send(persons)
-    } catch{
-        res.send(404).send('Not Found')
+        res.status(200).send('Updated.')
+    } catch {
+        res.status(404).send('Not Found')
     }
-    res.send(persons)
 })
 
 router.delete('/:id', async (req, res) => {
@@ -99,8 +98,8 @@ router.delete('/:id', async (req, res) => {
         const del = await post.delete(id)
         res.send(200)
     }
-    catch{
-        res.send(404).send('Not found')
+    catch {
+        res.status(404).send('Not found')
     }
 })
 

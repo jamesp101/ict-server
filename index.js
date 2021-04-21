@@ -7,9 +7,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 
-expressConfig.app.listen(expressConfig.PORT, () => {
-    console.log(`Express is running at ${expressConfig.PORT}`)
-})
+expressConfig.app.listen(expressConfig.PORT, '0.0.0.0')
 
 databaseConfig.testConnection()
 

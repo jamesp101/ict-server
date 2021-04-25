@@ -20,7 +20,7 @@ const postSchema = new schema.Schema({
             type: schema.Schema.Types.ObjectId,
             ref: 'Account'
         },
-        description: 'String',
+        title: 'String',
         commentDate: { type: 'Date', default: Date.now }
     }],
     postedBy:

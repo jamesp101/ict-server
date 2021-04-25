@@ -25,16 +25,6 @@ router.get('/', async (req, res) => {
     const data = await post.select(
         params,
         {},
-        [{
-            path: 'comments.user',
-            model: 'Account',
-            select: ['person'],
-            populate: {
-                path: 'person',
-                model: 'Persons',
-                select: ['lastname', 'firstname']
-            }
-        },
         {
             path: 'postedBy',
             select: ['person'],
@@ -44,18 +34,44 @@ router.get('/', async (req, res) => {
                 select: ['lastname', 'firstname']
             }
         },
-        ]
     )
     res.json(data)
 })
 
-router.get('/:id', jwt, async (req, res) => {
+router.get('/search', async (req, res) => {
+    const params = req.query
+
+    // TODO: add a search functionality
+})
+
+
+router.get('/:id/comments', async (req, res) => {
 
     const params = req.params
     const data = await post.select({ _id: params.id },
         {},
         {
             path: 'comments.user',
+            model: 'Account',
+            select: ['-password', '-createdOn', '-__v'],
+            populate: {
+                path: 'person',
+                model: 'Persons',
+                select: ['lastname', 'firstname']
+            }
+
+        })
+    res.send(data)
+})
+
+router.get('/:id', async (req, res) => {
+
+    const params = req.params
+    const data = await post.select({ _id: params.id },
+        {},
+        {
+            path: 'comments.user',
+            model: 'Account',
             select: [
                 'firstname',
                 'lastname']
@@ -63,23 +79,20 @@ router.get('/:id', jwt, async (req, res) => {
     res.send(data)
 })
 
-router.get('/search', jwt, async (req, res) => {
-    const params = req.query
 
-    // TODO: add a search functionality
-})
+
 
 
 router.post('/', async (req, res) => {
     // if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
     const data = req.body
     console.log(data)
+
     const ins = await post.insert(data)
     res.send(ins)
 })
 
 router.put('/:id', async (req, res) => {
-    if (req.user.access == 1) { res.send(401).send('Unauthorized Access') }
     const id = req.params.id
     const data = req.body
     console.log(req.body)

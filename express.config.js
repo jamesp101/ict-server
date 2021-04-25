@@ -17,6 +17,8 @@ app.use('/auth', require('./routes/auth.route'))
 app.use('/class', require('./routes/class.route'))
 app.use('/person', require('./routes/person.route'))
 app.use('/post', require('./routes/post.route'))
+app.use('/orders', require('./routes/orders.route'))
+app.use('/products', require('./routes/products.route'))
 
 
 
